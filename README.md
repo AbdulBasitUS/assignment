@@ -537,7 +537,7 @@ For better user experience you can go to:
 - #### Filtering the pizzas based on size only
 
 ```http
-  GET /pizzas/pizza?size=1
+  GET /pizzas/pizza?size=2
 ```
 &emsp; Response:
 
