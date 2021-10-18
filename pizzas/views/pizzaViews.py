@@ -9,6 +9,12 @@ from pizzas.serializers import PizzaSerializer
 def pizzaList(request):
     if request.method == 'GET':
         pizzas = Pizza.objects.all()
+        type_id =request.query_params.get('type', None)
+        size_id =request.query_params.get('size', None)
+        if type_id is not None:
+            pizzas = pizzas.filter(type__id=type_id)
+        if size_id is not None:
+            pizzas = pizzas.filter(size__id=size_id)
         serializer = PizzaSerializer(pizzas, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
