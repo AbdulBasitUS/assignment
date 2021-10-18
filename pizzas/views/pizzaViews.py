@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -5,6 +6,8 @@ from rest_framework import status
 from pizzas.models import Pizza
 from pizzas.serializers import PizzaSerializer
 
+@swagger_auto_schema(method='GET', responses={200: PizzaSerializer(many=True)})
+@swagger_auto_schema(method='POST', request_body=PizzaSerializer)
 @api_view(['GET', 'POST'])
 def pizzaList(request):
     if request.method == 'GET':
@@ -27,6 +30,8 @@ def pizzaList(request):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@swagger_auto_schema(methods=['PUT', 'PATCH'], request_body=PizzaSerializer)
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 def pizzaDetail(request, id):
     try:
