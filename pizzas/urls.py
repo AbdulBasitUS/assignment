@@ -6,6 +6,8 @@ from .views import (
     pizzaSizeDetail,
     pizzaToppingList, 
     pizzaToppingDetail,
+    pizzaList, 
+    pizzaDetail,
 )
 
 urlpatterns = [
@@ -17,4 +19,7 @@ urlpatterns = [
 
     path('toppings', pizzaToppingList),
     path('toppings/<int:id>', pizzaToppingDetail),
+
+    path('pizzas', pizzaList),
+    path('pizzas/<int:id>', pizzaDetail)
 ]
