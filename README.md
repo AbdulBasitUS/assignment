@@ -36,7 +36,7 @@ Connect to the API using Postman on port 8000.
 
 ## API Documentation
 
-For better UI experience you can go to:
+For better user experience you can go to:
 ```http
   GET http://localhost:8000/swagger/
   GET http://localhost:8000/redoc/
@@ -497,6 +497,67 @@ For better UI experience you can go to:
                         "id": 2,
                         "topping_name": "Tomato"
                     }
+                ]
+            }
+        ]
+
+- #### Filtering the pizzas based on type only
+
+```http
+  GET /pizzas/pizza?type=1
+```
+&emsp; Response:
+
+    Status: 200 OK
+        [
+            {
+                "id": 1,
+                "type": {
+                    "id": 1,
+                    "type_name": "Round"
+                },
+                "size": {
+                    "id": 2,
+                    "size_name": "Medium"
+                },
+                "toppings": [
+                    {
+                        "id": 1,
+                        "topping_name": "Onion"
+                    },
+                    {
+                        "id": 2,
+                        "topping_name": "Tomato"
+                    }
+                ]
+            }
+        ]
+
+
+- #### Filtering the pizzas based on size only
+
+```http
+  GET /pizzas/pizza?size=1
+```
+&emsp; Response:
+
+    Status: 200 OK
+        [
+            {
+                "id": 3,
+                "type": {
+                    "id": 2,
+                    "type_name": "square"
+                },
+                "size": {
+                    "id": 2,
+                    "size_name": "Medium"
+                },
+                "toppings": [
+                  {
+                      "id": 3,
+                      "topping_name": "Corn"
+                  }
                 ]
             }
         ]
