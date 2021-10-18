@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import (
     PizzaType,
-    PizzaSize
+    PizzaSize,
+    PizzaTopping
 )
 
 
@@ -13,4 +14,9 @@ class PizzaTypeSerializer(serializers.ModelSerializer):
 class PizzaSizeSerializer(serializers.ModelSerializer):
     class Meta:
         model = PizzaSize
+        fields = '__all__'
+
+class PizzaToppingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PizzaTopping
         fields = '__all__'
